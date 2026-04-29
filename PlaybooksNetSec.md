@@ -26,6 +26,33 @@ Para no tener un script gigante e inmanejable, he dividido la lógica en tres ar
 
 ---
 
+### 📄 `eventos.sh`
+
+<img width="802" height="329" alt="image" src="https://github.com/user-attachments/assets/0bcc6de6-073f-43d7-bf2a-059c1bb94afd" />
+
+
+> Lo más importante aquí no es el comando que usamos (como pgrep), sino cómo gestionamos el retorno. En Bash, el Playbook principal interpreta un return 0 como "Evento Detectado (Éxito)" y un return 1 como "Estado OK (Fallo)". Esta es la base de la lógica binaria del despachador.
+
+---
+
+### 📄 `suscriptores.sh`
+
+<img width="841" height="398" alt="image" src="https://github.com/user-attachments/assets/faf3d326-743b-4d60-9840-885187118a43" />
+
+
+> El punto fuerte de este archivo es la integración con Ansible (ansible-playbook). Al delegar tareas complejas de seguridad (como el Hardening de Oracle) a una herramienta de orquestación, demostramos cómo Bash puede coordinar diferentes niveles de automatización. Además, el uso de la variable $? para chequear si Ansible terminó bien o mal añade robustez al log.
+
+---
+
+### 📄 `playbook_main.sh`
+
+<img width="724" height="513" alt="image" src="https://github.com/user-attachments/assets/f11f9e89-e46d-40fb-8085-f9aefc63ca44" />
+
+
+> El uso de declare -A es la clave técnica del proyecto. Estos arrays actúan como diccionarios, permitiendo "suscribir" funciones de respuesta a IDs de eventos de forma dinámica. Esto cumple con el requisito de abstracción: podemos añadir 50 eventos nuevos sin tocar ni una sola línea del bucle for principal.
+
+---
+
 ## 3. Implementación de los 3 Playbooks
 
 ### 📦 Playbook 1: Gestión de Almacenamiento (`Evento DISCO`)
