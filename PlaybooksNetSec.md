@@ -1,8 +1,8 @@
 # 🖥️ PROYECTO: Automatización mediante Playbooks en Bash
 
 | Campo | Detalle |
-|-------|---------|
-| **Alumnos** | Eric Guillen Artacho | Ayoub Eddahbi Bourbah | José Antonio Pineda Fernández |
+| :--- | :--- |
+| **Alumnos** | Eric Guillen Artacho <br> Ayoub Eddahbi Bourbah <br> José Antonio Pineda Fernández |
 | **Curso** | 2º ASIX – Administración de Sistemas Informáticos en Red |
 | **Módulo** | Implantación de Sistemas Operativos / Seguridad |
 
